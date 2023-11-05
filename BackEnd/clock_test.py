@@ -34,11 +34,11 @@ def get_clock_model():
     cd_df = cd_df[["PATNO", "CLCKPII", "CLCK2HND", "CLCKNMRK", "CLCKNUIN", "CLCKALNU", "CLCKNUSP", "CLCKNUED", "CLCKTOT"]]
     data, labels = get_labels(ps_df, cd_df)
     data = data.drop(columns=["PATNO"])                                             # we don't want to pass the patient number as input for the model
-    data["CLCKTOT"] /= 7.0                                                          # normalise
+    # data["CLCKTOT"] /= 7.0                                                          # normalise
     labels -= 1
     train_data, test_data, train_labels, test_labels = train_test_split(data,
                                                                     labels,
-                                                                    test_size=0.2,
+                                                                    test_size=0.3,
                                                                     random_state=2)
     model = tf.keras.models.Sequential([tf.keras.layers.Dense(8, input_shape=(8,), activation='relu'),
                                     tf.keras.layers.Dense(8, activation='relu'),

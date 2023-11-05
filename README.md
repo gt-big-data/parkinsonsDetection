@@ -7,4 +7,4 @@ Dependencies:
 
 Instructions
 1. Run the virtual environment with `. .venv/bin/activate`
-2. Run the flask application with `Flask run`
+2. Run the flask application with `Flask run'
